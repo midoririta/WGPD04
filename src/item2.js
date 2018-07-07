@@ -1,9 +1,11 @@
 
 var Item2Layer = cc.Layer.extend({
     sprite:null,
-    ctor:function () {
+    ctor:function (data) {
 
         this._super();
+        cc.log("Itwm2Layer:" +data);
+        cc.log("Itwm2Layer:var2=" +var2);
         this.initMenu();
 
         return true;
@@ -32,14 +34,14 @@ var Item2Scene = cc.Scene.extend({
       this._super();
       this.mydata = data;
       cc.log("item2Scene:ctor():"+data);
-      // var layer = new Item2Layer(); //讓life cycle做
-      // this.addChild(layer);
+      var layer = new Item2Layer(data);//傳到上面的ctor
+      this.addChild(layer);
     },
-    onEnter:function () {
-        //this._super();
-        cc.log("item2Scene:onEnter()"+this.mydata); //ctor才可以傳參數
-        var layer = new Item2Layer();
-        this.addChild(layer);
-    }
+    // onEnter:function () {
+    //     //this._super();
+    //     cc.log("item2Scene:onEnter()"+this.mydata); //ctor才可以傳參數
+    //     // var layer = new Item2Layer();
+    //     // this.addChild(layer);
+    // }
 });
 

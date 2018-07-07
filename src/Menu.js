@@ -1,4 +1,4 @@
-var var1 = 100;
+var var2 = 321; //global var another layer can get but dangerous
 var MenuLayer = cc.Layer.extend({
     item2: null,
     ctor:function () {
@@ -30,12 +30,8 @@ var MenuLayer = cc.Layer.extend({
         cc.director.pushScene(new Item1Scene());
     },
     doItem2: function () {
-        cc.log("doitem2()");
-        if(this.item2 == null) {
-            cc.log("doitem2():null");
-            this.item2 = new Item2Scene(123);
-        }
-        cc.director.pushScene(this.item2);
+
+        cc.director.pushScene(new Item2Scene(100));
     },
     doItem3: function () {
         cc.log("doItem3");
