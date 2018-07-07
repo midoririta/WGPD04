@@ -13,9 +13,8 @@ var MenuLayer = cc.Layer.extend({
     initMenu: function () {
         cc.MenuItemFont.setFontSize(52);
         var menuItem1 = new cc.MenuItemFont("Item1",this.doItem1, this); //callback不需()
-        cc.MenuItemFont.setFontSize(36);
+        //cc.MenuItemFont.setFontSize(36);
         var menuItem2 = new cc.MenuItemFont("Item2",this.doItem2, this);
-        cc.MenuItemFont.setFontSize(48);
         var menuItem3 = new cc.MenuItemFont("Item3",this.doItem3, this);
         var menuItem4 = new cc.MenuItemFont("Item4",this.doItem4, this);
 
@@ -34,7 +33,7 @@ var MenuLayer = cc.Layer.extend({
         cc.director.pushScene(new Item2Scene(100));
     },
     doItem3: function () {
-        cc.log("doItem3");
+        cc.director.pushScene(new Item3Scene());
     },
     doItem4: function () {
         cc.log("doItem4");

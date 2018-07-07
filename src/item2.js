@@ -4,8 +4,8 @@ var Item2Layer = cc.Layer.extend({
     ctor:function (data) {
 
         this._super();
-        cc.log("Itwm2Layer:" +data);
-        cc.log("Itwm2Layer:var2=" +var2);
+        cc.log("Item2Layer:" +data);
+        cc.log("Item2Layer:var2=" +var2);
         this.initMenu();
 
         return true;

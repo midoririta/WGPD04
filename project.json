@@ -16,6 +16,8 @@
         "src/Menu.js",
         "src/item1.js",
         "src/item2.js",
+        "src/item3.js",
+        "src/item31.js",
         "src/app.js"
     ]
 }
