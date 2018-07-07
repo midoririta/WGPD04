@@ -28,6 +28,8 @@ var res = {
     back_normal_png : "res/back_normal.png",
     back_selected_png : "res/back_selected.png",
     ball_png : "res/ball.png",
+    brick_png : "res/brick.png",
+    bullet_png : "res/bullet.png",
     bg_jpeg : "res/bg.jpeg",
 };
 
