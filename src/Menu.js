@@ -17,9 +17,10 @@ var MenuLayer = cc.Layer.extend({
         var menuItem2 = new cc.MenuItemFont("Item2",this.doItem2, this);
         var menuItem3 = new cc.MenuItemFont("Item3",this.doItem3, this);
         var menuItem4 = new cc.MenuItemFont("Item4",this.doItem4, this);
+        var menuItem5 = new cc.MenuItemFont("Item5",this.doItem5, this);
 
         var menu = new cc.Menu(
-            menuItem1, menuItem2,menuItem3, menuItem4);
+            menuItem1, menuItem2,menuItem3, menuItem4, menuItem5);
         menu.alignItemsVertically();
         this.addChild(menu);
 
@@ -37,6 +38,9 @@ var MenuLayer = cc.Layer.extend({
     },
     doItem4: function () {
         cc.director.pushScene(new Item4Scene());
+    },
+    doItem5: function () {
+        cc.director.pushScene(new Item5Scene());
     },
 
 
