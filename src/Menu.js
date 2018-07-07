@@ -1,9 +1,9 @@
-
+var var1 = 100;
 var MenuLayer = cc.Layer.extend({
-
+    item2: null,
     ctor:function () {
-
         this._super();
+
 
         this.initMenu();
 
@@ -11,9 +11,8 @@ var MenuLayer = cc.Layer.extend({
     },
 
     initMenu: function () {
-
         cc.MenuItemFont.setFontSize(52);
-        var menuItem1 = new cc.MenuItemFont("Item1",this.doItem1, this); //callback 不需()
+        var menuItem1 = new cc.MenuItemFont("Item1",this.doItem1, this); //callback不需()
         cc.MenuItemFont.setFontSize(36);
         var menuItem2 = new cc.MenuItemFont("Item2",this.doItem2, this);
         cc.MenuItemFont.setFontSize(48);
@@ -21,16 +20,22 @@ var MenuLayer = cc.Layer.extend({
         var menuItem4 = new cc.MenuItemFont("Item4",this.doItem4, this);
 
         var menu = new cc.Menu(
-            menuItem1,menuItem2,menuItem3,menuItem4);
+            menuItem1, menuItem2,menuItem3, menuItem4);
         menu.alignItemsVertically();
         this.addChild(menu);
+
     },
 
     doItem1: function () {
-        cc.log("doItem1");
+        cc.director.pushScene(new Item1Scene());
     },
     doItem2: function () {
-        cc.log("doItem2");
+        cc.log("doitem2()");
+        if(this.item2 == null) {
+            cc.log("doitem2():null");
+            this.item2 = new Item2Scene(123);
+        }
+        cc.director.pushScene(this.item2);
     },
     doItem3: function () {
         cc.log("doItem3");
@@ -38,6 +43,8 @@ var MenuLayer = cc.Layer.extend({
     doItem4: function () {
         cc.log("doItem4");
     },
+
+
 });
 
 var MenuScene = cc.Scene.extend({
@@ -47,4 +54,3 @@ var MenuScene = cc.Scene.extend({
         this.addChild(layer);
     }
 });
-
