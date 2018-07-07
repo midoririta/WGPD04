@@ -24,6 +24,9 @@
 
 var res = {
     HelloWorld_png : "res/HelloWorld.png",
+    back_disselect_png : "res/back_disselect.png",
+    back_normal_png : "res/back_normal.png",
+    back_selected_png : "res/back_selected.png",
 };
 
 var g_resources = [];
