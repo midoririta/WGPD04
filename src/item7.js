@@ -48,8 +48,8 @@ var Item7Layer = cc.Layer.extend({
                 this.y <= layer.bricks[i].y + layer.bricks[i].height){
                     this.dy *= -1;
                 }
-                else if(this.x >= layer.bricks[i].x - layer.bricks[i].width &&
-                    this.x <= layer.bricks[i].x + layer.bricks[i].width){
+                else if(this.x <= layer.bricks[i].x - layer.bricks[i].width &&
+                    this.x >= layer.bricks[i].x + layer.bricks[i].width){
                     this.dx *= -1;
                 }
                 else{
