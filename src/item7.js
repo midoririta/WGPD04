@@ -39,26 +39,36 @@ var Item7Layer = cc.Layer.extend({
         var layer = this.getParent(); //this is a ball.png
 
         for(var i = 0; i < layer.bricks.length; i++){
+            //上下
+            if(
+                this.x <= layer.bricks[i].x + layer.bricks[i].width/2 &&
+                this.x >= layer.bricks[i].x - layer.bricks[i].width/2 &&
+                ((this.y > layer.bricks[i].y && this.y-this.height/2
+                    <= layer.bricks[i].y + layer.bricks[i].height/2) ||
 
-            if(cc.rectContainsPoint(
-                layer.bricksRect[i],
-                new cc.Point(this.x, this.y))){
-
-                if(this.y >= layer.bricks[i].y - layer.bricks[i].height &&
-                this.y <= layer.bricks[i].y + layer.bricks[i].height){
-                    this.dy *= -1;
-                }
-                else if(this.x <= layer.bricks[i].x - layer.bricks[i].width &&
-                    this.x >= layer.bricks[i].x + layer.bricks[i].width){
-                    this.dx *= -1;
-                }
-                else{
-
-                }
-
+                    (this.y < layer.bricks[i].y && this.y+this.height/2
+                        >= layer.bricks[i].y - layer.bricks[i].height/2)
+                )){
                 layer.removeChild(layer.bricks[i]);
                 layer.bricks.splice(i,1);
-                layer.bricksRect.splice(i,1);
+                this.dy *=-1;
+                break;
+            }
+
+
+            //左右
+            if(
+                this.y <= layer.bricks[i].y + layer.bricks[i].height/2 &&
+                this.y >= layer.bricks[i].y - layer.bricks[i].height/2 &&
+                ((this.x > layer.bricks[i].x && this.x-this.width/2
+                        <= layer.bricks[i].x + layer.bricks[i].width/2) ||
+
+                    (this.x < layer.bricks[i].x && this.y+this.width/2
+                        >= layer.bricks[i].x - layer.bricks[i].width/2)
+                )){
+                layer.removeChild(layer.bricks[i]);
+                layer.bricks.splice(i,1);
+                this.dx *=-1;
                 break;
             }
         }
