@@ -13,11 +13,11 @@ var Item7Layer = cc.Layer.extend({
         this.addChild(this.ball);
 
         this.bricks = []; this.bricksRect = [];
-        for(var i = 0; i < 15; i++){
+        for(var i = 0; i< 30; i++){
             this.bricks[i] = new cc.Sprite(res.brick_png);
             this.bricks[i].attr({
-                x: this.bricks[i].width*i + this.bricks[i].width/2,
-                y: cc.winSize.height*6 /8,
+                x: this.bricks[i].width*(i%15) + this.bricks[i].width/2,
+                y: cc.winSize.height*(6-parseInt(i/15)) /8,
             });
             this.addChild(this.bricks[i]);
 
